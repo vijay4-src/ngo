@@ -1,4 +1,6 @@
-/* Base Styles */
+/* ==========================================================================
+   1. Base Styles & Variables
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -7,46 +9,36 @@
 }
 
 :root {
-    --primary: #c95b35;
-    /* Logo wala rust orange */
-    --secondary: #16423c;
-    /* Logo wala deep green/blue shade */
-    --text-color: #4a4a4a;
-    --light-bg: #f5f0eb;
-    /* Slight earthy tone background */
+    --primary: #c95b35;       /* Logo Rust Orange */
+    --secondary: #16423c;     /* Logo Deep Green */
+    --text-color: #4a4a4a;    /* Body Text */
+    --light-bg: #f5f0eb;      /* Cream Background */
+    --white: #ffffff;
 }
 
 body {
     color: var(--text-color);
     line-height: 1.6;
-    background-color: #fff;
+    background-color: var(--white);
+    overflow-x: hidden; /* Screen ke bahar kuch na jaye */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
-.section-padding {
-    padding: 80px 0;
-}
+.section-padding { padding: 80px 0; }
+.text-center { text-align: center; }
+.bg-light { background-color: var(--light-bg); }
+.bg-cream { background-color: var(--light-bg); }
 
-.text-center {
-    text-align: center;
-}
-
-.bg-light {
-    background-color: var(--light-bg);
-}
-
-/* Typography */
-h1,
-h2,
-h3 {
-    color: var(--secondary);
-    font-weight: 700;
-}
+/* ==========================================================================
+   2. Typography & Bilingual Text
+   ========================================================================== */
+h1, h2, h3, h4 { color: var(--secondary); font-weight: 700; }
 
 .section-subtitle {
     color: var(--primary);
@@ -57,50 +49,60 @@ h3 {
     font-weight: 600;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--secondary);
-}
+.section-title { font-size: 2.5rem; margin-bottom: 20px; color: var(--secondary); }
 
-/* Buttons */
-.btn-primary {
+/* Bilingual Classes */
+.eng-title { display: block; font-size: 0.65em; color: #666; margin-top: 5px; font-weight: 500; }
+.eng-para { display: block; font-size: 0.9em; color: #777; margin-top: 8px; line-height: 1.5; font-weight: 400; }
+.eng-btn { display: block; font-size: 0.8em; font-weight: normal; opacity: 0.9; margin-top: 2px; }
+
+/* ==========================================================================
+   3. Buttons
+   ========================================================================== */
+.btn-donate, .btn-primary, .contact-form button {
     background: var(--primary);
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
+    color: var(--white) !important;
+    padding: 5px 60px;
     border-radius: 30px;
-    display: inline-block;
-    font-weight: 600;
+    text-decoration: none;
+    font-weight: 500;
     transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(201, 91, 53, 0.2);
+    display: inline-block;
     border: 2px solid var(--primary);
+    cursor: pointer;
+    text-align: center;
 }
 
-.btn-primary:hover {
+.btn-donate:hover, .btn-primary:hover, .contact-form button:hover {
     background: transparent;
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
 .btn-outline {
-    border: 2px solid white;
-    color: white;
-    padding: 12px 28px;
-    text-decoration: none;
+    background: var(--primary);
+    color: var(--white) !important;
+    padding: 10px 40px;
     border-radius: 30px;
-    display: inline-block;
-    font-weight: 600;
+    text-decoration: none;
+    font-weight: 500;
     transition: 0.3s;
+    border: 2px solid var(--white);
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-outline:hover {
-    background: white;
-    color: var(--secondary);
+   background: transparent;
+    color: var(--primary) !important;
 }
 
-/* Top Bar */
+/* ==========================================================================
+   4. Top Bar & Navbar
+   ========================================================================== */
 .top-bar {
     background: var(--secondary);
-    color: white;
+    color: var(--white);
     padding: 8px 0;
     font-size: 13px;
 }
@@ -109,29 +111,16 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.contact-info span {
-    margin-right: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
+.contact-info span { margin-right: 20px; display: inline-flex; align-items: center; gap: 8px; }
+.social-links a { color: var(--white); margin-left: 15px; text-decoration: none; transition: 0.3s; font-size: 15px; }
+.social-links a:hover { color: var(--primary); }
 
-.social-links a {
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--primary);
-}
-
-/* Navbar */
 nav {
-    background: white;
+    background: var(--white);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
     padding: 15px 0;
     position: sticky;
@@ -140,509 +129,170 @@ nav {
     transition: 0.3s;
 }
 
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.nav-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-img { width: 70px; height: 70px; object-fit: contain; border-radius: 5px; }
+.logo h2 { font-size: 1.4rem; color: var(--secondary); margin: 0; line-height: 1.2; }
+.logo span { font-size: 0.9rem; color: var(--primary); font-weight: 600; }
 
-.logo-img {
-    width: 95px;
-    height: 95px;
-    object-fit: contain;
-}
+.nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; justify-content: center; }
+.nav-links a { text-decoration: none; color: var(--secondary); font-weight: 600; transition: 0.3s; font-size: 14px; text-align: center; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-.logo h2 {
-    font-size: 1.4rem;
-    color: var(--secondary);
-    margin: 0;
-    line-height: 1.2;
-}
-
-.logo span {
-    font-size: 0.9rem;
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--secondary);
-    font-weight: 600;
-    transition: 0.3s;
-    font-size: 15px;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--primary);
-}
-
-/* Hero Section */
-.hero {
-    height: 85vh;
-    background: linear-gradient(rgba(22, 66, 60, 0.8), rgba(22, 66, 60, 0.6)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+/* ==========================================================================
+   5. Hero & Page Banners
+   ========================================================================== */
+.main-header, .hero {
+    height: 90vh;
+    min-height: 600px;
+    background: linear-gradient(rgba(22, 66, 60, 0.8), rgba(22, 66, 60, 0.6)), url('Image/header.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: var(--white);
+    padding: 0 20px;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    color: white;
-    margin-bottom: 20px;
-    line-height: 1.2;
+.main-title { font-size: 3.5rem; color: var(--white); margin-bottom: 20px; line-height: 1.2; }
+.tagline { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.9; }
+.header-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+
+.page-banner { 
+    background: linear-gradient(rgba(22, 66, 60, 0.85), rgba(22, 66, 60, 0.85)), url('Image/header.png') center/cover no-repeat; 
+    padding: 100px 20px; 
+    color: var(--white); 
+    text-align: center; 
 }
-
-.hero h1 span {
-    color: #f4a261;
-    /* Softer orange for dark background */
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    opacity: 0.9;
-}
-
-/* About Snippet */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* Cards Grid */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    transition: 0.4s ease;
-    border: 1px solid #eee;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary);
-}
-
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 25px;
-}
-
-.card-content h3 {
-    margin-bottom: 12px;
-    font-size: 1.3rem;
-}
-
-.card-content p {
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-    color: #666;
-}
-
-.read-more {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.3s;
-}
-
-.read-more:hover {
-    gap: 12px;
-}
-
-/* Footer */
-footer {
-    background: var(--secondary);
-    color: white;
-    padding-top: 70px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
-    margin-bottom: 40px;
-}
-
-.footer-col h3 {
-    color: white;
-    margin-bottom: 25px;
-    font-size: 1.3rem;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-col h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 40px;
-    height: 3px;
-    background: var(--primary);
-}
-
-.footer-col p {
-    color: #d1d5db;
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-}
-
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-col ul li {
-    margin-bottom: 12px;
-}
-
-.footer-col ul li a {
-    color: #d1d5db;
-    text-decoration: none;
-    transition: 0.3s;
-    display: inline-block;
-}
-
-.footer-col ul li a:hover {
-    color: var(--primary);
-    transform: translateX(5px);
-}
-
-.footer-bottom {
-    background: #0f2e2a;
-    padding: 20px 0;
-    color: #9ca3af;
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-content {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .cards-grid,
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .top-bar-content {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-}
-
-/* Dual Language Subtitle Classes */
-.eng-title {
-    display: block;
-    font-size: 0.65em;
-    color: #666;
-    margin-top: 5px;
-    font-weight: 500;
-}
-
-.eng-para {
-    display: block;
-    font-size: 0.9em;
-    color: #777;
-    margin-top: 8px;
-    line-height: 1.5;
-}
-
-
+.page-banner h1 { font-size: 3.5rem; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
 
 /* ==========================================================================
-   About Us Page Specifics
+   6. Grids & Layouts
    ========================================================================== */
-.page-banner { background: linear-gradient(rgba(22, 66, 60, 0.85), rgba(22, 66, 60, 0.85)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover; padding: 120px 0 80px; color: white; margin-top: -110px; }
-.page-banner h1 { font-size: 3rem; color: white; margin-bottom: 10px; }
+/* About Section Grid */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.about-image img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); }
 
+/* Mission Vision Grid */
 .mission-vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.mv-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--primary-orange); transition: 0.3s; }
+.mv-box { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--primary); transition: 0.3s; }
 .mv-box:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-.icon-circle { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-.orange-bg { background-color: var(--primary-orange); }
-.dark-green-bg { background-color: var(--dark-green); }
+.icon-circle { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: var(--white); margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-/* Team / Founders */
+/* Cards Grid (Home & Our Work) */
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+.card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); transition: 0.4s ease; border: 1px solid #eee; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); border-color: var(--primary); }
+.card img { width: 100%; height: 220px; object-fit: cover; }
+.card-content { padding: 25px; flex-grow: 1; }
+.card-content h3 { margin-bottom: 12px; font-size: 1.3rem; color: var(--secondary); }
+
+/* Team Grid (Founders) */
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
-.team-member { background: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s ease; border: 1px solid #eee; }
-.team-member:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--primary-orange); }
-.member-img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--primary-orange); padding: 5px; background: white; }
-.team-member h3 { font-size: 1.2rem; margin-bottom: 5px; }
-.role { font-weight: 600; margin-bottom: 10px; }
-.member-bio { font-size: 0.9em; line-height: 1.6; }
+.team-member { background: var(--white); padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s ease; border: 1px solid #eee; }
+.team-member:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--primary); }
+.member-img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--primary); padding: 5px; background: var(--white); }
 
-/* Impact Stats */
-.impact-stats { background-color: var(--primary-orange); padding: 60px 0; color: white; }
-.stats-flex { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 20px; }
-.stat-item h2 { font-size: 3.5rem; color: white; margin-bottom: 5px; }
+/* Gallery Grid */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 30px;}
+.gallery-item { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; }
+.gallery-item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--primary); }
+.gallery-item img, .gallery-item iframe { width: 100%; height: 250px; object-fit: cover; border: none; display: block; }
+.gallery-caption { padding: 20px 15px; text-align: center; border-top: 3px solid var(--primary); }
+
+/* Contact Page Grid */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: flex-start; }
+.contact-list { list-style: none; padding: 0; }
+.contact-list li { display: flex; align-items: flex-start; margin-bottom: 25px; }
+.contact-list i { color: var(--primary); font-size: 1.3rem; margin-right: 15px; margin-top: 5px; }
+.contact-form-col { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: flex; gap: 20px; width: 100%; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 14px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; outline: none; transition: 0.3s; background-color: #fafafa; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary); box-shadow: 0 0 8px rgba(201, 91, 53, 0.2); background-color: var(--white); }
+.map-placeholder { border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); height: 400px; width: 100%; border: 2px solid var(--white); }
+.map-placeholder img, .map-placeholder iframe { width: 100%; height: 100%; border: none; object-fit: cover; }
+
 /* ==========================================================================
-   Responsive (Mobile View Adjustments)
+   7. Footer
    ========================================================================== */
+footer { background: var(--secondary); color: var(--white); padding-top: 70px; }
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-bottom: 40px; }
+.footer-col h3 { color: var(--white); margin-bottom: 25px; font-size: 1.3rem; position: relative; padding-bottom: 10px; }
+.footer-col h3::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--primary); }
+.footer-col p { color: #d1d5db; font-size: 0.95rem; margin-bottom: 15px; display: flex; gap: 12px; align-items: flex-start; }
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a { color: #d1d5db; text-decoration: none; transition: 0.3s; display: inline-block; }
+.footer-col ul li a:hover { color: var(--primary); transform: translateX(5px); }
+.footer-bottom { background: #0b221f; padding: 20px 0; color: #9ca3af; font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+/* ==========================================================================
+   8. MEDIA QUERIES (The Magic of Responsiveness)
+   ========================================================================== */
+
+/* Tablet & Smaller Laptops */
 @media (max-width: 992px) {
-    .nav-links { gap: 15px; }
-    .nav-links a { font-size: 13px; }
-    .hero h1, .page-banner h1 { font-size: 2.8rem; }
-    .about-grid, .mission-vision-grid { grid-template-columns: 1fr; }
-    .cards-grid, .team-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .section-padding { padding: 60px 0; }
+    
+    /* Convert 3-columns to 2-columns */
+    .cards-grid, .team-grid, .gallery-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    
+    /* Adjust About Section */
+    .about-grid, .mission-vision-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    
+    .main-title { font-size: 2.8rem !important; }
+    .page-banner h1 { font-size: 2.8rem !important; }
 }
 
+/* Mobile Phones */
 @media (max-width: 768px) {
+    .section-padding { padding: 40px 0; }
+    
+    /* Top Bar adjustments */
+    .top-bar-content { flex-direction: column; text-align: center; gap: 10px; }
+    .contact-info span { margin-right: 10px; margin-bottom: 5px; font-size: 12px; }
+    
+    /* Navbar adjustments */
     .nav-content { flex-direction: column; gap: 15px; }
-    .logo { margin-bottom: 10px; }
-    .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
-    .top-bar-content { flex-direction: column; gap: 10px; text-align: center; }
-    .contact-info span { margin-right: 0; }
-    .hero, .page-banner { padding: 80px 20px; height: auto; }
-    .cards-grid, .team-grid, .footer-grid { grid-template-columns: 1fr; }
-    .team-grid { max-width: 400px; margin-left: auto; margin-right: auto; }
-}
-/* ==========================================================================
-   Contact Us Page Specific Styles
-   ========================================================================== */
+    .logo { justify-content: center; }
+    .nav-links { gap: 10px; width: 100%; justify-content: center; }
+    .nav-links a { font-size: 13px; }
+    
+    /* Hero Section */
+    .main-header, .hero { height: auto; padding: 80px 20px; min-height: 500px; }
+    .main-title { font-size: 2.2rem !important; }
+    .tagline { font-size: 1rem; }
+    .page-banner h1 { font-size: 2.2rem !important; }
+    .page-banner { padding: 60px 20px; }
+    
+    /* Section Titles */
+    .section-title { font-size: 2rem; }
+    
+    /* Buttons */
+    .btn-primary, .btn-outline, .btn-donate { padding: 10px 30px; width: 100%; display: block; }
+    .header-btns { width: 100%; }
+    
+    /* Convert all grids to 1-column */
+    .cards-grid, .team-grid, .gallery-grid, .footer-grid { grid-template-columns: 1fr; gap: 25px; }
+    
+    /* Forms */
+    .form-row { flex-direction: column; gap: 20px; }
+    .contact-form-col { padding: 20px; }
+    .map-placeholder { height: 250px; }
 
-/* Main Grid Layout */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
-    align-items: flex-start;
-}
-
-/* Contact Information Side */
-.contact-info-col h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: var(--primary-orange);
-}
-
-.contact-info-col p {
-    margin-bottom: 30px;
-    color: #555;
-}
-
-.contact-list {
-    list-style: none;
-    padding: 0;
-}
-
-.contact-list li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 25px;
-}
-
-.contact-list i {
-    color: var(--primary-orange);
-    font-size: 1.3rem;
-    margin-right: 15px;
-    margin-top: 5px;
-}
-
-/* Contact Form Side */
-.contact-form-col {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-row {
-    display: flex;
-    gap: 20px;
-}
-
-/* Input Fields Styling */
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 14px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
-    background-color: #fafafa;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-orange);
-    box-shadow: 0 0 8px rgba(200, 90, 50, 0.2);
-    background-color: #fff;
-}
-
-.contact-form button {
-    width: fit-content;
-    align-self: center;
-    cursor: pointer;
-    margin-top: 10px;
-    padding: 12px 35px;
-}
-
-/* Map Section */
-.map-section {
-    padding-top: 0;
-}
-
-.map-placeholder {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    height: 400px;
-    width: 100%;
-    border: 2px solid white;
-}
-
-.map-placeholder img,
-.map-placeholder iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    object-fit: cover;
-}
-
-/* ==========================================================================
-   Responsive (Mobile View Adjustments for Contact)
-   ========================================================================== */
-@media (max-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 1fr; /* Stack columns on tablets */
+    /* Fix image styling in specific layouts if used inline */
+    div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 20px !important;
     }
 }
 
-@media (max-width: 768px) {
-    .form-row {
-        flex-direction: column; /* Inputs full width on mobile */
-        gap: 20px;
-    }
-    .contact-form-col {
-        padding: 25px; /* Less padding on small screens */
-    }
-    .map-placeholder {
-        height: 250px; /* Smaller map on mobile */
-    }
-}
-
-/* ==========================================================================
-   Buttons (Updated Uniform Styling)
-   ========================================================================== */
-.btn-donate, .btn-primary, .contact-form button {
-    background: #a84725;
-    color: white !important;
-    padding: 5px 60px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 400;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(201, 91, 53, 0.2);
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-donate:hover, .btn-primary:hover, .contact-form button:hover {
-    background: #a84725;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(200, 90, 50, 0.3);
-}
-
-/* Outline button adjustment to match the new shape */
-.btn-outline {
-    background: transparent;
-    color: var(--dark-green);
-    padding: 5px 60px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 400;
-    transition: 0.3s;
-    border: 2px solid var(--dark-green);
-    display: inline-block;
-}
-
-.btn-outline:hover {
-    background: var(--dark-green);
-    color: white;
+/* Very Small Mobile Phones (like iPhone SE) */
+@media (max-width: 480px) {
+    .main-title { font-size: 1.8rem !important; }
+    .page-banner h1 { font-size: 1.8rem !important; }
+    .logo h2 { font-size: 1.2rem; }
+    .logo span { font-size: 0.8rem; }
 }
