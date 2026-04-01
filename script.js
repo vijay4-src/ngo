@@ -16,3 +16,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// ==========================================
+// Mobile Hamburger Menu Logic
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const navMenuWrapper = document.getElementById('nav-menu-wrapper');
+
+    if (mobileBtn && navMenuWrapper) {
+        mobileBtn.addEventListener('click', () => {
+            // Menu ko dikhana ya chupana
+            navMenuWrapper.classList.toggle('active');
+            
+            // Icon ko Menu (Bars) se Close (X) mein badalna
+            if (navMenuWrapper.classList.contains('active')) {
+                mobileBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    }
+});
