@@ -296,3 +296,54 @@ footer { background: var(--secondary); color: var(--white); padding-top: 70px; }
     .logo h2 { font-size: 1.2rem; }
     .logo span { font-size: 0.8rem; }
 }
+/* ==========================================================================
+   MOBILE HAMBURGER MENU FIX (Desktop Issue Resolved)
+   ========================================================================== */
+/* Desktop Default */
+.nav-content { display: flex; justify-content: space-between; align-items: center; position: relative; }
+.nav-header { display: flex; align-items: center; justify-content: space-between; }
+.nav-menu-wrapper { display: flex; align-items: center; gap: 25px; }
+.mobile-menu-btn { display: none; font-size: 28px; color: var(--secondary); cursor: pointer; }
+
+/* Mobile View Adjustments */
+@media (max-width: 992px) {
+    .nav-menu-wrapper { gap: 15px; }
+    .nav-links { gap: 15px; }
+}
+
+@media (max-width: 768px) {
+    .nav-content { display: block; }
+    .nav-header { width: 100%; } /* Important: Sirf mobile par 100% width */
+    
+    .logo-img { width: 50px; height: 50px; }
+    .logo h2 { font-size: 1.1rem !important; }
+    
+    /* Hamburger Icon Show */
+    .mobile-menu-btn { display: block; }
+    
+    /* Menu dropdown styling */
+    .nav-menu-wrapper {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
+        z-index: 999;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .nav-menu-wrapper.active {
+        display: flex;
+    }
+    
+    .nav-links { flex-direction: column; width: 100%; gap: 10px; align-items: flex-start; }
+    .nav-links a { display: block; width: 100%; padding: 8px 0; border-bottom: 1px solid #f5f0eb; text-align: left; }
+    
+    .nav-menu-wrapper .btn-donate { width: 100%; padding: 12px 0; margin-top: 10px; display: block; text-align: center; }
+}
