@@ -160,7 +160,7 @@ nav {
 .header-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
 .page-banner { 
-    background: linear-gradient(rgba(22, 66, 60, 0.85), rgba(22, 66, 60, 0.85)), url('Image/header.png') center/cover no-repeat; 
+    background: linear-gradient(rgba(22, 66, 60, 0.85), rgba(22, 66, 60, 0.85)), url('Image/header2.jpeg') center/cover no-repeat; 
     padding: 100px 20px; 
     color: var(--white); 
     text-align: center; 
